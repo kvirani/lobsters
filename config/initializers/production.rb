@@ -42,19 +42,19 @@ if Rails.env.production?
 
   class << Rails.application
     def allow_invitation_requests?
-      true
+      ENV['ALLOW_INVITATION_REQUESTS'] == 'true'
     end
 
     def allow_new_users_to_invite?
-      true
+      ENV['ALLOW_NEW_USERS_TO_INVITE'] == 'true'
     end
 
     def domain
-      "labsters.lighthouselabs.ca"
+      ENV['HOST']
     end
 
     def name
-      "Labsters - Web"
+      ENV['SITE_NAME']'
     end
 
     def ssl?
